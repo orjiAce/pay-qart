@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import styles from '../styles/Home.module.scss'
 import Application from "./RadioSelect";
 import {Radio, RadioGroup} from "react-custom-radio-buttons";
-import {CustomRadio, CustomCheckbox} from "react-custom-radio-checkbox";
 import {FaRegCalendar, FaRegCalendarAlt} from "react-icons/fa";
 import PropTypes from "prop-types";
 import {getFormValues} from "../redux/actions/data-action";
@@ -129,14 +128,14 @@ Do you have an existing loan(s)?
 
                     {options.map(option => (
                         <div className='radio'>
-                            <CustomRadio
-                                key={option.value}
-                                label={option.label}
-                                name="gender"
-                                value={option.value}
-                                style={{display: "block"}}
-                                onChange={radioChange}
-                            />
+                            <label style={{display: "block"}}>
+                                {
+                                    option.label
+                                }
+                            </label>
+                            <input type='radio'    onChange={radioChange} style={{display: "block"}} name="loan" value={option.value}  />
+
+
                         </div>
                     ))}
 
